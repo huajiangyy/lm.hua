@@ -16,4 +16,44 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(lm.hua)
+library(broom)
+library(bench)
+```
+
+Define a predictor and target vector
+```{r}
+Y = c(5.6, 7.9, 10.8) 
+X = c(1, 2, 3)
+```
+
+
+To use this function 'linear_regression' to get Y = beta0 + beta1*X + e:
+```{r}
+linear_regression(X, Y)
+```
+
+
+The built-in linear modeling function lm: 
+```{r}
+lm(Y ~ X)
+```
+
+
+Comparing beta0 and beta1
+```{r}
+beta0_hua = linear_regression(X, Y)[1,1]
+beta1_hua = linear_regression(X, Y)[2,1]
+beta0_org = tidy(lm(Y ~ X))$estimate[1]
+beta1_org = tidy(lm(Y ~ X))$estimate[2]
+all.equal(beta0_hua, beta0_org)
+all.equal(beta0_hua, beta0_org)
+#beta0_org = loc(lm(Y ~ X))
+```
+
+
+Comparing performance of the functions 
+```{r}
+bench::mark(linear_regression(X, Y)[1,1], tidy(lm(Y ~ X))$estimate[1], check = function(x,y){all.equal(beta0_hua, beta0_org, tolerance = 1e-2)})
+bench::mark(linear_regression(X, Y), linear_regression(X, Y), check = function(x,y){all.equal(beta0_hua, beta0_org, tolerance = 1e-2)})
+#beta0_org = loc(lm(Y ~ X))
 ```
