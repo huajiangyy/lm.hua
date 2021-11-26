@@ -96,4 +96,5 @@ linear_regression = function(predictor, target){
 }
 
 #package.skeleton("mypackage", list = c("linear_regression"))
+#this is a new function
 
