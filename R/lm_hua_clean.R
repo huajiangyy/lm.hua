@@ -3,7 +3,7 @@
 #' It returns a table of beta coefficient, standard error, t value, and p value
 #' as variables, and predictors as observations,
 #' @param predictor the predictor variables
-#' @param target the target variables
+#' @param outcome the target variables
 #' @return returns beta, SE, t value, p value of the linear regression
 #'
 #' @examples
@@ -12,7 +12,7 @@
 #' linear_regression(X, Y)
 #'
 #' @export
-#' linear_regression(predictor1, predictor2, ..., target)
+#' linear_regression(predictor1, predictor2, ..., outcome)
 
 linear_regression = function(predictor, target){
   #get the size of target
