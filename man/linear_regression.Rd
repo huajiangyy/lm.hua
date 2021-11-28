@@ -4,12 +4,12 @@
 \alias{linear_regression}
 \title{A custom function that calculates multiple linear regress}
 \usage{
-linear_regression(predictor, target)
+linear_regression(predictor, outcome)
 }
 \arguments{
 \item{predictor}{the predictor variables}
 
-\item{target}{the target variables}
+\item{outcome}{the outcome variables}
 }
 \value{
 returns beta, SE, t value, p value of the linear regression
