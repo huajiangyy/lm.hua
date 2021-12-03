@@ -14,7 +14,6 @@
 #' A sample health dataset is included and loaded automatically when loading the
 #' package
 #'
-#' @
 #'
 #' @examples
 #' Y = matrix(c(5.6, 7.9, 10.8), ncol=1)
