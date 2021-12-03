@@ -2,25 +2,40 @@
 % Please edit documentation in R/lm_hua_clean.R
 \name{linear_regression}
 \alias{linear_regression}
-\title{A custom function that calculates multiple linear regress}
+\title{A custom function that calculates multiple linear regression}
 \usage{
 linear_regression(predictor, outcome)
 }
 \arguments{
-\item{predictor}{the predictor variables}
+\item{predictor}{the predictor variables, can consist of multiple variables.
+It has to be in nxm matrix format}
 
-\item{outcome}{the outcome variables}
+\item{outcome}{the outcome variables. It has to be in nx1 matrix format}
 }
 \value{
-returns beta, SE, t value, p value of the linear regression
+returns a table of beta, SE, t value, p value of the linear regression
+
+A sample health dataset is included and loaded automatically when loading the
+package
 }
 \description{
-It returns a table of beta coefficient, standard error, t value, and p value
-as variables, and predictors as observations,
+It returns a table of beta coefficients, standard error, t value, and p value
+as variables, and predictors as observations.It also prints out confidence
+intervals and descriptive univariate statistics.
 }
 \examples{
-Y = c(5.6, 7.9, 10.8)
-X = c(1, 2, 3)
+Y = matrix(c(5.6, 7.9, 10.8), ncol=1)
+X = matrix(c(1, 2, 3), ncol=1)
+linear_regression(X, Y)
+
+Y = matrix(c(1714,1664,1760,1685,1693,1670,1764,1764,1792,1850,1735,1775),
+ncol=1)
+X = matrix(c(2.4,2.52,2.54,2.74,2.83,2.91,3,3,3.01,3.01,3.02,3.07), ncol=1)
+linear_regression(X, Y)
+
+Y = mydata$death_rate
+X = cbind(mydata$doctor_num, mydata$hos_num, mydata$capita_nuuanl_income,
+mydata$population_den)
 linear_regression(X, Y)
 
 }

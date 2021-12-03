@@ -22,8 +22,8 @@ library(bench)
 
 Define a predictor and target vector
 ```{r}
-Y = c(5.6, 7.9, 10.8) 
-X = c(1, 2, 3)
+Y = matrix(c(1714,1664,1760,1685,1693,1670,1764,1764,1792,1850,1735,1775), ncol=1)
+X = matrix(c(2.4,2.52,2.54,2.74,2.83,2.91,3,3,3.01,3.01,3.02,3.07), ncol=1)
 ```
 
 
@@ -54,6 +54,6 @@ all.equal(beta0_hua, beta0_org)
 Comparing performance of the functions 
 ```{r}
 bench::mark(linear_regression(X, Y)[1,1], tidy(lm(Y ~ X))$estimate[1], check = function(x,y){all.equal(beta0_hua, beta0_org, tolerance = 1e-2)})
-bench::mark(linear_regression(X, Y), linear_regression(X, Y), check = function(x,y){all.equal(beta0_hua, beta0_org, tolerance = 1e-2)})
+#bench::mark(linear_regression(X, Y), linear_regression(X, Y), check = function(x,y){all.equal(beta0_hua, beta0_org, tolerance = 1e-2)})
 #beta0_org = loc(lm(Y ~ X))
 ```

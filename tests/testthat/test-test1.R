@@ -2,8 +2,8 @@ context("running linear_regression function")
 
 test_that("running test case #1", {
   #define simple predictor and target
-  Y = c(5.6, 7.9, 10.8)
-  X = c(1, 2, 3)
+  Y = matrix(c(5.6, 7.9, 10.8), ncol=1)
+  X = matrix(c(1, 2, 3), ncol=1)
   #run liner regression
   reg = linear_regression(X, Y)
 
