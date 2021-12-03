@@ -6,5 +6,3 @@ this is my R packge for multiple linear regression
 
 [![codecov](https://codecov.io/gh/huajiangyy/lm.hua/branch/main/graph/badge.svg?token=0QR22G90FB)](https://codecov.io/gh/huajiangyy/lm.hua)
 <!-- badges: end -->
-
-https://codecov.io/gh/huajiangyy/lm.hua/settings/badge
