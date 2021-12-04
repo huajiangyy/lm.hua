@@ -127,7 +127,7 @@ linear_regression = function(predictor, outcome){
     }
     return(CI);
   }"
-  #sourceCpp("code.cpp")
+  #sourceCpp("src/code.cpp")
   sourceCpp(code = src)
   CI = calculate_CI(beta_hat, se_beta_hat)
   rownames(CI) = beta_name
