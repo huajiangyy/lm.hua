@@ -11,8 +11,17 @@
 #'
 #' @return returns a table of beta, SE, t value, p value of the linear regression
 #'
-#' A sample health dataset is included and loaded automatically when loading the
+#'
+#' @format A sample health dataset is included and loaded automatically when loading the
 #' package
+#' \describe{
+#'   \item{death_rate}{death rate, per 1,000 population}
+#'   \item{doctor_num}{number of doctors, per 100,000 population}
+#'   \item{hos_num}{number of hospital, per 100,000 population}
+#'   \item{capita_nuuanl_income}{annual per capita income, in thousands of $}
+#'   \item{population_den}{population density per square mile}
+#' }
+#'
 #'
 #' @examples
 #' Y = matrix(c(5.6, 7.9, 10.8), ncol=1)
@@ -103,7 +112,6 @@ linear_regression = function(predictor, outcome){
   Fstat = (ssr/(p-1))/(sse/(n-p))
 
   #calculate confidence interval, using Rcpp
-  library(Rcpp)
   src = "
   #include <Rcpp.h>
   #include <vector>
@@ -129,7 +137,7 @@ linear_regression = function(predictor, outcome){
     return(CI);
   }"
   #sourceCpp("src/code.cpp")
-  sourceCpp(code = src)
+  Rcpp::sourceCpp(code = src)
   CI = calculate_CI(beta_hat, se_beta_hat)
   rownames(CI) = beta_name
   colnames(CI) = c('2.5 %', '97.5 %')

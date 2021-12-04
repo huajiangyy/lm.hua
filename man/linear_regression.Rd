@@ -3,6 +3,17 @@
 \name{linear_regression}
 \alias{linear_regression}
 \title{A custom function that calculates multiple linear regression}
+\format{
+A sample health dataset is included and loaded automatically when loading the
+package
+\describe{
+  \item{death_rate}{death rate, per 1,000 population}
+  \item{doctor_num}{number of doctors, per 100,000 population}
+  \item{hos_num}{number of hospital, per 100,000 population}
+  \item{capita_nuuanl_income}{annual per capita income, in thousands of $}
+  \item{population_den}{population density per square mile}
+}
+}
 \usage{
 linear_regression(predictor, outcome)
 }
@@ -14,13 +25,10 @@ It has to be in nxm matrix format}
 }
 \value{
 returns a table of beta, SE, t value, p value of the linear regression
-
-A sample health dataset is included and loaded automatically when loading the
-package
 }
 \description{
 It returns a table of beta coefficients, standard error, t value, and p value
-as variables, and predictors as observations.It also prints out confidence
+as variables, and predictors as observations. It also prints out confidence
 intervals and descriptive univariate statistics.
 }
 \examples{
