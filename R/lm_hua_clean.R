@@ -1,7 +1,7 @@
 #' A custom function that calculates multiple linear regression
 #'
 #' It returns a table of beta coefficients, standard error, t value, and p value
-#' as variables, and predictors as observations.It also prints out confidence
+#' as variables, and predictors as observations. It also prints out confidence
 #' intervals and descriptive univariate statistics.
 #'
 #' @param predictor the predictor variables, can consist of multiple variables.
