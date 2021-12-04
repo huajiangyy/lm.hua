@@ -30,7 +30,7 @@
 #' linear_regression(X, Y)
 #'
 #' @export
-#' #' linear_regression(predictor, outcome)
+#' linear_regression(predictor, outcome)
 
 linear_regression = function(predictor, outcome){
   #get the size of outcome
